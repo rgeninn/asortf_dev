@@ -1,0 +1,240 @@
+{% extends 'bases/base.html.twig' %}
+
+{% block title %}L'AS ORFT Plongée{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/style.css') }}">
+{% endblock %}
+{% block body %}
+    <header>
+        <div class="content">
+            <h2 class="h2">
+                L'AS ORTF
+            </h2>
+            <p class="subtitle">
+                Club associatif de plongée à Limoges
+            </p>
+            <p class="description">
+                L'Association sportive des organismes de radios et télévisions française, avec son club de plongée sous-marine à Limoges existe depuis 1972.<br><br>Nous avons pour objectif de développer toutes les activités sportives de la fédération française d'études et de sports sous-marine
+            </p>
+
+            <div class="tabs_container">
+                <div class="tab_navigation">
+                    <button class="tablinks active" data-display="training">Les entrainements</button>
+                    <button class="tablinks" data-display="equipment">Le matériel</button>
+                    <button class="tablinks" data-display="learn">Les formations</button>
+                </div>
+                <div class="tabs_overflow">
+                    <!-- Tab content -->
+                    <div id="training" class="tabcontent active">
+                        <p>
+                            Les vendredis soir 21h, piscine de Beaublanc à Limoges
+                            <br><br>
+                            Lors de ces séances, vous apprendrez le milieu aquatique ou, si vous êtes pratiquant, vous le perfectionnerez. Les règles de sécurité vous y seront transmises ainsi que la sélection et l’entretien de votre matériel de plongée sous-marine.
+                        </p>
+                    </div>
+
+                    <div id="equipment" class="tabcontent">
+                        <p>Vous aurez du matériel de plongée à disposition : des masques, des palmes, des gilets stabilisateurs et des détendeurs.
+                            <br><br>
+                            L'ASORTF dispose même de son propre compresseur, permettant à leurs adhérents d'avoir leur bloc rempli gratuitement.</p>
+                    </div>
+
+                    <div id="learn" class="tabcontent">
+                        <p>L'adhésion à l'ASORTF avec un tarif associatif vous permet de passer vos niveaux en faisant quelques économies. <br> <br>Il est également proposé, des activités parallèles comme l’apnée, la photographie, la biologie et bien d’autres au sein de l'ASORTF ou avec la FFESSM CODEP 87</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{{ asset('assets/images/header.png') }}" alt="Image de plongeur" class="illustration">
+        <a class="view_more">Découvrir l'association</a>
+    </header>
+
+    <section class="about light">
+        <h3 class="h4"><span class="bold">L'AS ORTF</span> c'est</h3>
+        <ul class="chiffres">
+            <li>
+                <p class="chiffre">50</p>
+                <p class="label">ans d'existance</p>
+            </li>
+            <li>
+                <p class="chiffre">3500</p>
+                <p class="label">plongées</p>
+            </li>
+            <li>
+                <p class="chiffre">70</p>
+                <p class="label">licenciés</p>
+            </li>
+        </ul>
+    </section>
+
+
+    <section class="activites section_container">
+        <h3 class="h3"> Les <span class="bold">activités</span> de l'association</h3>
+        <ul>
+            <li class="activite">
+                <h5 class="title">Les entrainements</h5>
+                <p class="description">
+                    Pour s’exercer à la bouteille ou à l’apnée, rien de tel de nos entrainements.
+                    <br><br>On se retrouve chaque <span class="bold">vendredi</span> à <span class="bold">21h</span>
+                </p>
+                <div class="location">
+                    <i data-feather="map-pin"></i>
+                    <p>
+                        <span>Piscine de Beaublanc</span><br>
+                        <span>22 Boulevard de Beaublanc<br>87000 Limoges</span>
+                    </p>
+                </div>
+            </li>
+            <li class="activite">
+                <h5 class="title">Les formations</h5>
+                <p class="description">
+                    Que vous soyez débutant ou expert, participez à nos journées de formations, le tout sous la tutelle de notre équipe encadrante expérimentée
+                </p>
+            </li>
+            <li class="activite">
+                <h5 class="title">La théorie</h5>
+                <p class="description">
+                    Que vous souhaitiez plonger en semi autonomie durant vos vacances, ou bien encadrer un groupe de plongeur, la théorie est indispensable à tout bon plongeur. Venez participer à nos matinées théorie
+                </p>
+            </li>
+            <li class="activite">
+                <h5 class="title">Les voyages</h5>
+                <p class="description">
+                    Véritable bulle de plaisir et de déconnexion du monde, participez à nos voyages dans les pplus beaux lieux de plongée partout dans le monde.
+                </p>
+            </li>
+            <li class="activite">
+                <h5 class="title">Les sorties</h5>
+                <p class="description">
+                    Notre calendrier est régulièrement mis à jour pour vous proposer des journées de sortie dans la région, ou dans des lieux limitrophes (fosse de Montluçon, plongée en carrière etc)
+                </p>
+                <a href="#" class="link">
+                    <i data-feather="calendar"></i> Notre calendrier
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="news section_container">
+        <h3 class="h3"> Les dernières <span class="bold">infos</span></h3>
+        <ul>
+            <li class="info">
+                <img src="{{ asset('assets/images/articles/6532346c4a2f3.jpeg') }}" alt="Bannière de l'article" class="banner">
+                <h5 class="title">Assemblée générale ordinaire</h5>
+                <p class="description">
+                    Rendez-vous le <span class="bold">07 novembre</span> à <span class="bold">19h45</span> à la <span class="bold">Maison des Sports de Beaublanc</span>
+                </p>
+                <div class="content">
+                    <a href="#" class="attached">
+                        <i data-feather="paperclip"></i> compte_rendu_ag_2023.pdf
+                    </a>
+                </div>
+                <div class="footer">
+                    <p class="date">
+                        <i data-feather="clock"></i> 04 septembre 2023
+                    </p>
+                    <div class="like">
+                        <span>4</span>
+                        <div class="like_icon">
+                            <input type="checkbox" id="like_1">
+                            <label for="like_1">
+                                <i data-feather="heart"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="info">
+                <img src="{{ asset('assets/images/articles/64e8734508221.jpeg') }}" alt="Bannière de l'article" class="banner">
+                <h5 class="title">Reprise des entrainements à Beaublanc</h5>
+                <p class="description">
+                    Rendez-vous le <span class="bold">22 septembre à 21h</span> sur le parking intérieur de Beaublanc
+                </p>
+                <div class="footer">
+                    <p class="date">
+                        <i data-feather="clock"></i> 04 septembre 2023
+                    </p>
+                    <div class="like">
+                        <span>4</span>
+                        <div class="like_icon">
+                            <input type="checkbox" id="like_2">
+                            <label for="like_2">
+                                <i data-feather="heart"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="info">
+                <img src="{{ asset('assets/images/articles/f2351827fcae29fee091d7eabf63ec9a.png') }}" alt="Bannière de l'article" class="banner">
+                <h5 class="title">Baptemes de plongée à l’Aquapolis</h5>
+                <p class="description">
+                    Découverte de la plongée pour les visiteurs de l’Aquapolis
+                </p>
+                <div class="content">
+                    <a href="#" class="btn">Lire l'article</a>
+                </div>
+                <div class="footer">
+                    <p class="date">
+                        <i data-feather="clock"></i> 04 septembre 2023
+                    </p>
+                    <div class="like">
+                        <span>4</span>
+                        <div class="like_icon">
+                            <input type="checkbox" id="like_3">
+                            <label for="like_3">
+                                <i data-feather="heart"></i>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+    let executeAnimation = true;
+
+    function isScrolledIntoView(elem){
+        const $elem = $(elem);
+        const $window = $(window);
+        const docViewTop = $window.scrollTop();
+        const docViewBottom = docViewTop + $window.height();
+
+        const elemTop = $elem.offset().top;
+        const elemBottom = elemTop + $elem.height();
+
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    }
+
+
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.html(Math.floor(progress * (end - start) + start));
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    $(window).on('resize scroll', function() {
+        if(executeAnimation) {
+            if(isScrolledIntoView($('.chiffre'))) {
+                executeAnimation = false;
+                $(".chiffre").each((key, chiffre) => {
+                    animateValue($(chiffre), 0, parseInt(chiffre.innerHTML), Math.floor(Math.random() * 4001));
+                });
+            }
+        }
+    });
+
+
+</script>
+{% endblock %}

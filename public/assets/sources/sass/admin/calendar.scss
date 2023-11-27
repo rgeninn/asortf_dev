@@ -1,0 +1,111 @@
+@import "../global";
+@import "admin_global";
+@import "../modules/modal";
+
+:root {
+  --fc-now-indicator-color: #3B68AB;
+  --fc-today-bg-color: rgba(59, 104, 171, 0.1)
+}
+
+.calendar {
+  height: 100%;
+
+  .header {
+    height: 150px;
+    margin-bottom: 10px;
+
+    .calendar_navigation {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+
+        &.switch_view {
+          display: none;
+        }
+
+        &:not(.switch_view) {
+          flex-wrap: wrap;
+
+          li {
+            width: calc(50% - 5px);
+
+            button {
+              width: 100%;
+
+              &#new_event {
+                svg {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        .btn {
+          padding: 6px 8px;
+          margin: 0;
+
+          svg {
+            height: 17px;
+            margin: 0;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #calendar {
+    a {
+      text-transform: capitalize;
+      color: $text-color;
+    }
+
+    .fc-day-today a {
+      font-weight: $font-extrabold;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .calendar {
+    .header {
+      height: 100px;
+      margin-bottom: 20px;
+
+      .calendar_navigation {
+        flex-direction: row;
+
+        ul.switch_view {
+          display: flex;
+        }
+
+        ul:not(.switch_view) {
+          flex-wrap: initial;
+
+          li {
+            width: initial;
+
+            button#new_event svg {
+              display: block;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+

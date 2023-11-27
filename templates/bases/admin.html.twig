@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}!{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ asset('assets/images/logo.png') }}">
+    {% block stylesheets %}
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+</head>
+<body>
+{% set currentPath = path(app.request.attributes.get('_route'),
+    app.request.attributes.get('_route_params')) %}
+
+<nav class="navigation">
+    <button class="mobile_menu">
+        <i data-feather="menu" class="open_menu_icon"></i>
+        <i data-feather="x" class="close_menu_icon"></i>
+    </button>
+    <h1 class="logo">
+        <img src="{{ asset('assets/images/logo.png') }}" alt="AS ORTF Plongée">
+    </h1>
+    <button class="more">
+        <i data-feather="more-vertical"></i>
+    </button>
+
+    <div id="user">
+        <p class="name">Romain G.</p>
+        <a href="#"> Gérer mon compte</a>
+        <a class="logout" href="{{ path('app_logout') }}">
+            <i data-feather="power"></i>
+        </a>
+    </div>
+</nav>
+<ul class="navigation_container">
+    <li {% if currentPath starts with "/vue_generale" %} class="active" {% endif %}>
+        <a href="{{ path('app_dashboard') }}">
+            <i data-feather="activity"></i>
+            Vue générale
+        </a></li>
+    <li {% if currentPath starts with "/gestion" %} class="active" {% endif %}>
+        <a href="{{ path('app_manage') }}">
+            <i data-feather="layout"></i>
+            Contenu du site
+        </a></li>
+    <li {% if currentPath starts with "/licencies" %} class="active" {% endif %}>
+        <a href="{{ path('app_licencees') }}">
+            <i data-feather="users"></i>
+            Licenciés
+        </a></li>
+    <li>
+        <a href="">
+            <i data-feather="tool"></i>
+            Matériel
+        </a></li>
+    <li {% if currentPath starts with "/calendrier" %} class="active" {% endif %}>
+        <a href="{{ path('app_calendrier') }}">
+            <i data-feather="calendar"></i>
+            Calendrier
+        </a></li>
+    <li {% if currentPath starts with "/fichiers" %} class="active" {% endif %}>
+        <a href="{{ path('app_cloud') }}">
+            <i data-feather="folder"></i>
+            Fichiers
+        </a></li>
+    <li {% if currentPath starts with "/communication" %} class="active" {% endif %}>
+        <a href="{{ path('app_notification') }}">
+            <i data-feather="mail"></i>
+            Communication
+        </a></li>
+    <li>
+        <a href="#">
+            <i data-feather="settings"></i>
+            Réglages
+        </a>
+    </li>
+</ul>
+
+{% block body %}
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    feather.replace();
+
+
+    $('.open_menu_icon').on('click', ()=> {
+        $('body').addClass('menu_open');
+        $('.navigation_container').addClass('open');
+    })
+
+    $('.close_menu_icon').on('click', ()=> {
+        $('body').removeClass('menu_open');
+        $('.navigation_container').removeClass('open');
+    })
+
+
+    $('.more').on('click', ()=> {
+        $('#user').addClass('open').removeClass('close')
+    });
+
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#user').length  && !$(event.target).closest('.more').length) {
+            if($('#user').hasClass('open')) {
+                $('#user').addClass('close').removeClass('open')
+            }
+        }
+    });
+</script>
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

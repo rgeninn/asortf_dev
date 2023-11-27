@@ -1,0 +1,55 @@
+@import "../../global";
+@import "../admin_global";
+@import "../../modules/modal";
+
+
+.licensee {
+  .btn {
+    @include button($primary);
+  }
+
+  #users_wrapper {
+    margin-top: 40px;
+
+    .dataTables_length {
+      margin-bottom: 20px;
+    }
+
+    #users {
+      width: 100% !important;
+
+      tr {
+        padding: 10px 0;
+
+        .btn {
+
+          padding: 6px 8px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          svg {
+            width: 15px;
+          }
+
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 490px) {
+  .licensee {
+    .header {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #users_wrapper #users tr .btn span {
+      display: block;
+    }
+  }
+}

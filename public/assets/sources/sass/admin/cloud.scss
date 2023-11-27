@@ -1,0 +1,137 @@
+@import "../global";
+@import "admin_global";
+@import "../modules/modal";
+
+
+.cloud {
+
+  .cloud_container {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+
+    .breadcrumb {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+
+      .breadcrumb-item {
+        &:not(:last-child)::after {
+          content: '/';
+          display: inline;
+          margin: 0 8px 0 4px;
+          color: $grey
+        }
+
+        a {
+          font-size: 20px;
+        }
+
+        &.active {
+          text-transform: uppercase;
+          font-weight: $font-extrabold;
+          font-size: 20px;
+          color: $text-color;
+        }
+
+        &.mobile_hide {
+          display: none;
+        }
+      }
+
+      .breadcrumb-item-back {
+        margin-right: auto;
+        font-size: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+
+        svg {
+          font-size: 15px;
+        }
+      }
+    }
+
+    .cloud_item {
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: #f8f8f8;
+      border-radius: 5px;
+      transition: .2s ease-in-out;
+      cursor: pointer;
+      position: relative;
+      max-width: 80%;
+      margin: 0 auto;
+
+      &.folder {
+        span {
+          color: $text-color;
+          font-weight: $font-bold;
+        }
+      }
+
+      img {
+        height: 60px;
+      }
+
+      &:hover {
+        box-shadow: $box-shadow;
+      }
+
+      &_delete {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        svg {
+          stroke: $secondary;
+          width: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .cloud .cloud_container {
+    flex-flow: row wrap;
+
+    .breadcrumb {
+      width: 100%;
+    }
+    .cloud_item {
+      max-width: initial;
+      width: calc(50% - 10px);
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .cloud .cloud_container {
+    .cloud_item {
+      max-width: initial;
+      width: calc((100% / 4) - 10px);
+      margin: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .cloud .cloud_container {
+    .cloud_item {
+      max-width: initial;
+      width: calc((100% / 6) - 10px);
+      margin: 0;
+    }
+  }
+}

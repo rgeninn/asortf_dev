@@ -1,0 +1,135 @@
+{% extends 'bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Licenciés{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/librairies/DataTables/datatables.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/users/list.css') }}">
+{% endblock %}
+{% block body %}
+    <main class="licensee admin_section">
+       <div class="header">
+           <h1>Licenciés</h1>
+           <button class="btn modal_open" id="new_user" data-modal_id="#new_user_modal">
+               <i data-feather="plus"></i>
+               Ajouter un licencié</button>
+       </div>
+
+        <table id="users">
+            <thead>
+            <tr>
+                <th>Identité</th>
+                <th>Licence</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for licencee in users %}
+            <tr>
+                <td>{{ licencee.firstname }} {{ licencee.lastname }}</td>
+                <td>{{ licencee.licenceId }}</td>
+                <td>
+                    <a href="mailto:{{ licencee.email }}">
+                        {{ licencee.email }}
+                    </a>
+                </td>
+                <td>
+                    <a href="tel:{{ licencee.phone }}">
+                        {{ licencee.phone | phone_slice }}
+                    </a>
+                </td>
+                <td> {{ licencee.birthday | date('y-m-d') | age }} ans</td>
+                <td>
+                    <a href="{{ path('profil', {id: licencee.id}) }}" class="btn">
+                        <i data-feather="eye"></i>
+                        <span>
+                            Voir le profil
+                        </span>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+
+    <div class="modal_container" id="new_user_modal">
+        <div class="overlay"></div>
+        <form class="modal w50">
+            <header class="modal_header">
+                <h2 class="modal_title">Ajout d'un licencié</h2>
+                <button type="reset" class="modal_close">
+                    <i data-feather="x"></i>
+                </button>
+            </header>
+            <section class="modal_content">
+                <div class="control required">
+                    <label for="firstname">
+                        Prénom
+                    </label>
+                    <input type="text" id="firstname" name="firstname">
+                </div>
+                <div class="control required">
+                    <label for="lastname">
+                        Nom de famille
+                    </label>
+                    <input type="text" id="lastname" name="lastname">
+                </div>
+                <div class="control required error">
+                    <label for="mail">
+                        Adresse mail
+                    </label>
+                    <input type="email" id="mail" name="mail">
+                    <small class="note error">Adresse mail déjà utilisée</small>
+                </div>
+                <div class="control">
+                    <label for="phone">
+                        Numéro de téléphone
+                    </label>
+                    <input type="tel" id="phone" name="phone">
+                    <small class="note">
+                        Format: 0123456789
+                    </small>
+                </div>
+                <div class="control">
+                    <label for="licence">
+                        Licence
+                    </label>
+                    <input type="text" id="licence" name="licence">
+                    <small class="note">
+                        Format: A-12-1234567
+                    </small>
+                </div>
+            </section>
+            <footer class="modal_footer">
+                <button type="reset" class="btn btn_cancel modal_close">Annuler</button>
+                <button type="submit" class="btn btn_confirm">Confirmer</button>
+            </footer>
+        </form>
+
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/librairies/DataTables/datatables.js') }}"></script>
+    <script src="{{ asset('assets/librairies/modal.js') }}"></script>
+    <script>
+        const users = new DataTable('#users', {
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/fr-FR.json'
+            },
+            info: false,
+            searching: false,
+            responsive: true,
+            columnDefs: [
+                { responsivePriority: 1, targets: [0,5] },
+                { responsivePriority: 2, targets: [3] },
+                { responsivePriority: 3, targets: [2,4,5] }
+            ]
+        });
+    </script>
+{% endblock %}

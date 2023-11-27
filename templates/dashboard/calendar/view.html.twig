@@ -1,0 +1,101 @@
+{% extends 'bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Calendrier{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/librairies/DataTables/datatables.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/calendar.css') }}">
+{% endblock %}
+{% block body %}
+    <main class="calendar admin_section">
+        <div class="header">
+            <h1>Calendar</h1>
+            <div class="calendar_navigation">
+                <ul>
+                    <li class="grouped">
+                        <button class="btn" id="calendar_prev">
+                            <i data-feather="chevron-left"></i>
+                        </button>
+                    </li>
+                    <li class="grouped">
+                        <button class="btn" id="calendar_next">
+                            <i data-feather="chevron-right"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn" id="calendar_today">
+                            <i data-feather="calendar"></i>&nbsp;
+                            Aujourd'hui
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn active" id="new_event">
+                            <i data-feather="plus"></i>&nbsp;
+                            Nouvel évènement
+                        </button>
+                    </li>
+                </ul>
+                <h2 id="today"></h2>
+                <ul class="switch_view">
+                    <li>
+                        <button class="btn" id="calendar_day">Jour</button>
+                    </li>
+                    <li>
+                        <button class="btn active" id="calendar_week">Semaine</button>
+                    </li>
+                    <li>
+                        <button class="btn" id="calendar_month">Mois</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="calendar"></div>
+
+    </main>
+
+    <form class="modal_container" id="new_event_modal">
+        <div class="overlay"></div>
+        <div class="modal w50">
+            <header class="modal_header">
+                <h2 class="modal_title">Nouvel évènement</h2>
+                <button type="reset" class="modal_close">
+                    <i data-feather="x"></i>
+                </button>
+            </header>
+            <section class="modal_content">
+                <div id="date_container">
+
+                </div>
+                <div class="control required">
+                    <label for="name">
+                        Nom
+                    </label>
+                    <input type="text" id="name" name="name" placeholder="Nom de l'évènement">
+                </div>
+                <div class="control">
+                    <label for="description">
+                        Description
+                    </label>
+                    <textarea id="description" name="description" rows="5" placeholder="Décrivez ici l'évènement, qui peut y avoir accès, le prix etc..."></textarea>
+                </div>
+                <div class="control checkbox">
+                    <input type="checkbox" name="event_registration" id="event_registration">
+                    <label for="event_registration">
+                        Cet évènement requiert une inscription de la part de vos licenciés
+                    </label>
+                </div>
+            </section>
+            <footer class="modal_footer">
+                <button type="reset" class="btn btn_cancel modal_close">Annuler</button>
+                <button type="submit" class="btn btn_confirm">Ajouter l'évènement</button>
+            </footer>
+        </div>
+    </form>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+    <script src="{{ asset('assets/librairies/fullcalendar/dist/index.global.js') }}"></script>
+    <script src="{{ asset('assets/librairies/fullcalendar/packages/core/locales/fr.global.js') }}"></script>
+    <script src="{{ asset('assets/librairies/modal.js') }}"></script>
+    <script src="{{ asset('assets/librairies/admin_calendar.js') }}"></script>
+{% endblock %}

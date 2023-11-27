@@ -1,0 +1,197 @@
+@import "modules/variables";
+@import "modules/mixin";
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-text;
+  font-weight: $font-normal;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.h1_title {
+  color: $text-color;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  margin-bottom: 20px;
+}
+
+.h2 {
+  color: $primary;
+  font-size: 30px;
+  font-weight: $font-extrabold;
+  margin-bottom: 5px;
+}
+
+.h3 {
+  font-size:  26px;
+  margin-bottom: 20px;
+}
+
+.h4 {
+  font-size: 20px;
+}
+
+.bold {
+  font-weight: $font-extrabold;
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  width: 100%;
+
+
+  &.required label::after {
+    content: '*';
+    color: $secondary;
+    margin-left: 3px;
+  }
+
+  &.error {
+    .note.error {
+      color: $secondary;
+    }
+
+    input {
+      border-color: $secondary;
+      background: rgba($secondary, .1);
+    }
+  }
+
+  &.date_input {
+    flex-wrap: wrap;
+    flex-direction: initial;
+    gap: 10px;
+
+    label {
+      width: 100%;
+      text-align: left;
+    }
+
+    input {
+      width: calc(50% - 10px);
+    }
+  }
+
+  &.checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    label {
+      margin: 0;
+    }
+
+    input {
+      margin-right: 5px;
+    }
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input, textarea {
+    padding: 12px 20px;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    font-size: 14px;
+
+
+    &[readonly] {
+      background: #f4f3f3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .note {
+    margin-top: 5px;
+  }
+
+}
+
+.light {
+  color: $white;
+}
+
+.section_container {
+  padding: 50px 20px;
+  width: 100%;
+}
+
+
+.tabs_container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  .tab_navigation {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .tablinks {
+      background: none;
+      border:none;
+      border-bottom: 2px solid transparent;
+      font-size: 16px;
+      transition: .3s all;
+
+      &.active,
+      &:hover {
+        font-weight: $font-extrabold;
+        border-color: $secondary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .tabs_overflow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 180px;
+
+    .tabcontent {
+      width: 100%;
+      display: none;
+      font-size: 16px;
+
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+button.btn,
+button.btn.swal2-confirm,
+a.btn {
+  @include button;
+
+}
+
+
+

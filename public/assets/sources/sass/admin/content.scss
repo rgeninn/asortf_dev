@@ -1,0 +1,100 @@
+@import "../global";
+@import "admin_global";
+@import "../modules/modal";
+
+
+.manage {
+  strong {
+    font-weight: bold;
+  }
+
+
+  .tab_navigation {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border-bottom: 1px solid $border-color;
+    padding: 10px 0;
+  }
+
+  .tabcontent {
+    h2 {
+      font-weight: $font-bold;
+      font-size: 18px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .btn {
+        padding: 6px 8px;
+      }
+    }
+
+    .ql-toolbar {
+      margin-top: 5px;
+    }
+
+
+    .header_image_preview {
+      margin-top: 10px;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      img {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+  .manage {
+    .tabs_container .tabs_overflow .tabcontent.active {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      h2 {
+        width: 100%;
+      }
+
+      .control {
+        width: calc(50% - 20px);
+
+        &.image_manager {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: space-between;
+          gap: 5px 10px;
+
+          img {
+            width: 100%;
+          }
+
+          label {
+            width: 100%;
+          }
+
+          input {
+            width: 50%;
+          }
+
+          .header_image_preview {
+            width: 30%;
+          }
+
+          input,
+          .header_image_preview {
+            margin: 0;
+            height: fit-content;
+          }
+        }
+      }
+    }
+  }
+}

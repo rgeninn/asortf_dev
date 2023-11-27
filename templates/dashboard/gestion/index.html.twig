@@ -1,0 +1,118 @@
+{% extends 'bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Gestion du contenu{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/content.css') }}">
+{% endblock %}
+{% block body %}
+    <main class="manage admin_section">
+        <div class="header">
+            <h1>Gestion du contenu</h1>
+        </div>
+        <div class="tabs_container">
+            <ul class="tab_navigation">
+                <li>
+                    <button class="tablinks active" data-display="general">Général</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="header">Haut de page</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="section_1">Les chiffres</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="section_2">Les activités</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="section_3">Les articles</button>
+                </li>
+            </ul>
+            <div class="tabs_overflow">
+                <form class="tabcontent active" id="general">
+                    <h2>
+                        Général
+                        <button type="submit" class="btn">Sauvegarder</button>
+                    </h2>
+                    <div class="control w50">
+                        <label for="title">
+                            Nom du site
+                        </label>
+                        <input type="text" name="title" id="title" value="L'AS ORFT">
+                    </div>
+                    <div class="control">
+                        <label for="subtitle">
+                            Sous titre
+                        </label>
+                        <input type="text" name="subtitle" id="subtitle" value="Club associatif de plongée à Limoges">
+                    </div>
+                    <div class="control">
+                        <label for="description">
+                            Description
+                        </label>
+                        <div id="description">
+                            L'Association sportive des organismes de radios et télévisions française, avec son club de plongée sous-marine à Limoges existe depuis 1972.<br><br>Nous avons pour objectif de développer toutes les activités sportives de la fédération française d'études et de sports sous-marine
+                        </div>
+                    </div>
+
+                    <div class="control image_manager">
+                        <label for="header_image_preview">
+                            Image d'illustration
+                        </label>
+                        <input type="file" name="header_image_preview" id="header_image_preview">
+
+                        <div class="header_image_preview">
+                            <p>
+                                Prévisualisation de l'image:
+                            </p>
+                            <img src="{{ asset('assets/images/header.png')}}" alt="image_preview" id="header_image_preview_target">
+                        </div>
+                    </div>
+                    <div class="control">
+                        <label for="tab_1_title">
+                            Tab 1
+                        </label>
+                        <input type="text" name="tab_1_title" id="tab_1_title" value="Les entrainements">
+                        <div id="tab_1_content">
+                            Les vendredis soir 21h, piscine de Beaublanc à Limoges
+
+                            Lors de ces séances, vous apprendrez le milieu aquatique ou, si vous êtes pratiquant, vous le perfectionnerez. Les règles de sécurité vous y seront transmises ainsi que la sélection et l’entretien de votre matériel de plongée sous-marine.
+                        </div>
+                    </div>
+                    <div class="control">
+                        <label for="tab_2_title">
+                            Tab 2
+                        </label>
+                        <input type="text" name="tab_2_title" id="tab_2_title" value="Le matériel">
+                        <div id="tab_2_content">
+                            Vous aurez du matériel de plongée à disposition : des masques, des palmes, des gilets stabilisateurs et des détendeurs.
+
+                            L'ASORTF dispose même de son propre compresseur, permettant à leurs adhérents d'avoir leur bloc rempli gratuitement.
+                        </div>
+                    </div>
+                    <div class="control">
+                        <label for="tab_3_title">
+                            Tab 3
+                        </label>
+                        <input type="text" name="tab_3_title" id="tab_3_title" value="Les formations">
+                        <div id="tab_3_content">
+                            L'adhésion à l'ASORTF avec un tarif associatif vous permet de passer vos niveaux en faisant quelques économies.
+
+                            Il est également proposé, des activités parallèles comme l’apnée, la photographie, la biologie et bien d’autres au sein de l'ASORTF ou avec la FFESSM CODEP 87
+                        </div>
+                    </div>
+                </form>
+                <div class="tabcontent" id="header">
+                    <h2>
+                        Haut de page
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="{{ asset('assets/librairies/admin/content/manage.js') }}"></script>
+{% endblock %}

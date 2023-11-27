@@ -1,0 +1,61 @@
+{% extends './bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Calendrier{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/cloud.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main class="cloud admin_section">
+        <div class="cloud_container">
+            <div class="breadcrumb">
+                <a href="#" class="breadcrumb-item-back">
+                    <i data-feather="chevron-left"></i><span>Retour</span></a>
+                <span class="breadcrumb-item mobile_hide">
+                    <a href="#">
+                        Cloud
+                    </a>
+                </span>
+                <span class="breadcrumb-item">
+                    <a href="#">
+                        Fichiers
+                    </a>
+                </span>
+                <h1 class="active breadcrumb-item">
+                    Licenciés
+                </h1>
+            </div>
+
+            <a href="#" class="cloud_item folder" data-id="1" data-parent-id="1">
+                <img src="{{ asset('assets/images/cloud/icons/folder.svg') }}" alt="cloud_item_logo">
+                <span>AG Compte Rendu</span>
+            </a>
+            <aside class="cloud_item cloud_item_file" data-micromodal-trigger="modal-preview"
+                   data-extension="svg"
+                   data-path=""
+                   data-id=""
+                   title="">
+                <img src="{{ asset('assets/images/about.jpg') }}" alt="" class="cloud_item_logo">
+                <span>IMAGE DE MER</span>
+                <a href="#" class='cloud_item_delete'>
+                <span>
+                    <i data-feather="trash"></i>
+                </span>
+                </a>
+            </aside>
+            <aside class="cloud_item cloud_item_file" data-micromodal-trigger="modal-preview"
+                   data-extension="svg"
+                   data-path=""
+                   data-id=""
+                   title="">
+                <img src="{{ asset('assets/images/cloud/icons/svg/pdf.svg') }}" alt="" class="cloud_item_logo">
+                <span>CR_AG</span>
+                <a href="#" class='cloud_item_delete'>
+                    <i data-feather="trash"></i>
+                </a>
+            </aside>
+        </div>
+    </main>
+
+{% endblock %}

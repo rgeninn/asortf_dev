@@ -1,0 +1,40 @@
+{% extends 'bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Mon profil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/users/profile.css') }}">
+{% endblock %}
+{% block body %}
+    <main class="profile admin_section">
+       <div class="header">
+           <img src="https://cdn.pixabay.com/photo/2023/06/27/10/51/pier-8091934_960_720.jpg " alt="Banniere de profile" class="banner">
+           <img src="https://xsgames.co/randomusers/avatar.php?g=male" alt="profile" class="pic">
+       </div>
+        <div class="tabs_container">
+            <ul class="tab_navigation">
+                <li>
+                    <button class="tablinks active" data-display="general">Général</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="cloud">cloud</button>
+                </li>
+                <li>
+                    <button class="tablinks" data-display="settings">settings</button>
+                </li>
+            </ul>
+            <div class="tabs_overflow">
+                <div class="tabcontent" id="cloud">
+                    <h2>
+                        Haut de page
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/librairies/admin/tabs.js') }}"></script>
+
+{% endblock %}

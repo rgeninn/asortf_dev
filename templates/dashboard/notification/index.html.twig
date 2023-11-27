@@ -1,0 +1,101 @@
+{% extends './bases/admin.html.twig' %}
+
+{% block title %}L'AS ORFT - Calendrier{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/sources/css/admin/notification.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main class="notification admin_section">
+        <div class="header">
+            <h1>Email</h1>
+        </div>
+
+        <section class="email">
+            <ul class="folders">
+                <li class="new">
+                    <button class="btn active">Nouveau mail</button>
+                </li>
+                <li>
+                    <i data-feather="mail"></i> Boîte de réception
+                </li>
+                <li>
+                    <i data-feather="send"></i> Mail envoyés
+                </li>
+                <li>
+                    <i data-feather="file"></i> Brouillons
+                </li>
+                <li>
+                    <i data-feather="trash-2"></i> Corbeille
+                </li>
+            </ul>
+            <ul class="list">
+                <li class="mobile">
+                    <i data-feather="menu"></i>
+                    <button id="close_preview">
+                        <i data-feather="x"></i>
+                    </button>
+                </li>
+                <li class="mail unread">
+                    <div class="checkbox">
+                        <input type="checkbox" name="select_1" id="select_1">
+                        <label for="select_1"></label>
+                    </div>
+                    <div class="content">
+                        <h2 class="sender">Romain Genin</h2>
+                        <p class="object">Test des mails</p>
+                        <p class="date">10/11/2023</p>
+                    </div>
+                </li>
+                <li class="mail">
+                    <div class="checkbox">
+                        <input type="checkbox" name="select_1" id="select_1">
+                        <label for="select_1"></label>
+                    </div>
+                    <div class="content">
+                        <h2 class="sender">Romain Genin</h2>
+                        <p class="object">Test des mails</p>
+                        <p class="date">10/11/2023</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="preview">
+                <div class="head">
+                    <ul>
+                        <li>
+                            <button class="btn">Répondre</button>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="date">10/11/2023</li>
+                        <li>
+                            <button class="btn"><i data-feather="trash-2"></i> Supprimer</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <h3>Romain Genin</h3>
+                    <h4>romaingenin@icloud.com</h4>
+                    <p class="object">Test des mails</p>
+                    <p class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque exercitationem hic laudantium rem sunt tempore voluptas! Debitis dolorum ea enim facere illo in inventore iste, laborum optio provident ratione sapiente!
+                    <br> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam commodi cum deserunt doloribus eos eveniet excepturi harum, incidunt ipsa nesciunt odio porro qui tempore unde! Minima praesentium quibusdam vel! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet commodi consequuntur dolorem eius error ex facere fuga fugit illo mollitia neque numquam odit possimus quaerat quam repellat, sed similique veniam? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi at doloremque error est, explicabo magnam minus sint temporibus voluptate. Blanditiis corporis earum, impedit ipsa labore quasi quis vel velit voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi ea officia vel velit! Consequatur debitis dignissimos error labore minima neque nobis quas quia rerum temporibus. Corporis eligendi exercitationem optio suscipit.</p>
+                    <div class="attatched">
+                        <h3>Attachment (1)</h3>
+                        <ul class="attachments">
+                            <li>
+                                <a href="#">
+                                    cr_ag_2023.pdf
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/librairies/admin/email/script.js') }}"></script>
+{% endblock %}
